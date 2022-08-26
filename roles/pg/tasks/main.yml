@@ -9,9 +9,14 @@
       - http://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     state: present
 
+- name: Install PostgreSQL12
+  yum:
+    name: 
+      - postgresql12-server
 
-- name: enable postgresql-11
+
+- name: enable postgresql-12
   service:
-    name: postgresql-11
+    name: postgresql-12
     state: started 
     enabled: yes
