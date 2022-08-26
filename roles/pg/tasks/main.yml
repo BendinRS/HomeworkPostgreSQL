@@ -14,9 +14,3 @@
     name: 
       - postgresql11-server
 
-
-- name: enable postgresql-11
-  service:
-    name: postgresql-11
-    state: started 
-    enabled: yes
