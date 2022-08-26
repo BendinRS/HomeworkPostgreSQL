@@ -1,2 +1,4 @@
 ---
-# tasks file for pg
+- name: update yum caсhe
+  yum:
+    update_cache: true
