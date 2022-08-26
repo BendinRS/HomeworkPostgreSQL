@@ -13,4 +13,17 @@
   yum:
     name: 
       - postgresql12-server
+    state: present
+
+- name: Initialize database
+  shell: /usr/pgsql-12/bin/postgresql-12-setup initdb 
+  #when: (ansible_hostname == "master")
+
+- name: started service postgresql
+  systemd:
+    name: postgresql-12
+    enabled: yes
+    state: started
+
+
 
