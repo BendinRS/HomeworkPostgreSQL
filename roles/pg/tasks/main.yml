@@ -10,8 +10,8 @@
     state: present
 
 
-- name: enable postgresql-12
+- name: enable postgresql-11
   service:
-    name: postgresql-12
+    name: postgresql-11
     state: started 
     enabled: yes
