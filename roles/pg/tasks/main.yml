@@ -3,14 +3,14 @@
   yum:
     update_cache: true
 
-- name: Add PostgreSQL11 Repo
+- name: Add PostgreSQL12 Repo
   yum:
     name:
       - http://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     state: present
 
-- name: Install PostgreSQL11
+- name: Install PostgreSQL12
   yum:
     name: 
-      - postgresql11-server
+      - postgresql12-server
 
