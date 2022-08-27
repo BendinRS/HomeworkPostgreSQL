@@ -44,5 +44,10 @@
     enabled: yes
     state: started
 
+- name: delete files in slave
+  shell: rm -rf /var/lib/postgresql/12/main/
+  when: (ansible_hostname == "slave")
+
+
 
 
