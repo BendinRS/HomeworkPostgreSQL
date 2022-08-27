@@ -45,12 +45,12 @@
     state: started
 
 - name: create barman user
-  shell: sudo -u postgres psql -c "Create user barman superuser  password 'barman';"
+  command: chdir=/var/lib/pgsql sudo -u postgres psql -c "Create user barman superuser  password 'barman';"
   ignore_errors: True
   when: (ansible_hostname == "master")
 
 - name: create slave user
-  shell: sudo -u postgres psql -c "Create user slave replication  password 'slave';"
+  command: chdir=/var/lib/pgsql sudo -u postgres psql -c "Create user slave replication  password 'slave';"
   ignore_errors: True
   when: (ansible_hostname == "master")
 
