@@ -3,13 +3,13 @@
   yum:
     update_cache: true
 
-- name: Extract file
-  fetch:
-    src: /var/lib/pgsql/12/data/{{ item }}
-    dest: ./
-  with_items:
-  - postgresql.conf
-  - pg_hba.conf 
+# - name: Extract file
+#   fetch:
+#     src: /var/lib/pgsql/12/data/{{ item }}
+#     dest: ./
+#   with_items:
+#   - postgresql.conf
+#   - pg_hba.conf 
 
 - name: Add PostgreSQL12 Repo
   yum:
@@ -22,6 +22,15 @@
     name: 
       - postgresql12-server
     state: present
+
+- name: copy files conf
+  copy: 
+    src=files/{{ item }}
+    dest=/var/lib/pgsql/12/data/{{ item }}
+  with_items:
+  - postgresql.conf
+  - pg_hba.conf 
+  when: (ansible_hostname == "master")
 
 - name: Initialize database
   shell: /usr/pgsql-12/bin/postgresql-12-setup initdb 
