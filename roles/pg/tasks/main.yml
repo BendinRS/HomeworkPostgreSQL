@@ -5,7 +5,7 @@
 
 - name: Extract file
   fetch:
-    src: /var/lib/pgsql/12/data/'{{ item }}'
+    src: /var/lib/pgsql/12/data/{{ item }}
     dest: ./
   with_items:
   - postgresql.conf
