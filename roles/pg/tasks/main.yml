@@ -5,8 +5,11 @@
 
 - name: Extract file
   fetch:
-    src: /var/lib/pgsql/12/data/
+    src: /var/lib/pgsql/12/data/'{{ item }}'
     dest: ./
+  with_items:
+  - postgresql.conf
+  - pg_hba.conf 
 
 - name: Add PostgreSQL12 Repo
   yum:
