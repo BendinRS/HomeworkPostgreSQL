@@ -9,7 +9,7 @@
   roles:
     - barman
 
-- hosts: pgservers
+- hosts: replicahost
   become: true
   roles:
     - replica
