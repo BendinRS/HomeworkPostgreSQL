@@ -44,6 +44,16 @@
     enabled: yes
     state: started
 
+- name: create barman user
+  shell: psql -U postgres -d postgres -c "Create user barman superuser  password 'barman';"
+  ignore_errors: True
+  when: (ansible_hostname == "master")
+
+- name: create slave user
+  shell: psql -U postgres -d postgres -c "Create user slave replication  password 'slave';"
+  ignore_errors: True
+  when: (ansible_hostname == "master")
+
 - name: delete files in slave
   shell: rm -rf /var/lib/postgresql/12/main/
   when: (ansible_hostname == "slave")
@@ -51,7 +61,4 @@
 - include_role:
     name: barman
 
-- name: update yum caсhe
-  yum:
-    update_cache: true
 
