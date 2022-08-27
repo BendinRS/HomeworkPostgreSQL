@@ -58,7 +58,3 @@
   shell: rm -rf /var/lib/postgresql/12/main/
   when: (ansible_hostname == "slave")
 
-- include_role:
-    name: barman
-
-
