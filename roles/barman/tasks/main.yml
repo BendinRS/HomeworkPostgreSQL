@@ -1,4 +1,10 @@
 ---
+- name: Install barman server
+  hosts: barmanhost  
+  become: True
+  gather_facts: false
+  tasks:
+
 - name: update yum caсhe
   yum:
     update_cache: true
