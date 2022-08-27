@@ -44,12 +44,34 @@
     enabled: yes
     state: started
 
+- name: create ssh dir
+  file:
+    path: "/var/lib/pgsql/.ssh"
+    state: directory
+    owner: postgres
+    group: postgres
+  when: (ansible_hostname == "master")
+
+- name: copy ssh keys
+  copy: src=files/ssh/{{ item }} 
+  dest: /var/lib/pgsql/.ssh/ 
+  mode: 0600
+  owner: postgres
+  group: postgres
+  with_items:
+    - id_rsa
+    - id_rsa.pub
+    - config
+
+
 - name: create barman user
+  become_user: postgres
   command: chdir=/var/lib/pgsql sudo -u postgres psql -c "Create user barman superuser  password 'barman';"
   ignore_errors: True
   when: (ansible_hostname == "master")
 
 - name: create slave user
+  become_user: postgres
   command: chdir=/var/lib/pgsql sudo -u postgres psql -c "Create user slave replication  password 'slave';"
   ignore_errors: True
   when: (ansible_hostname == "master")
