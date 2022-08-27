@@ -3,3 +3,8 @@
   become: true
   roles:
     - pg
+
+- hosts: barmanhost
+  become: true
+  roles:
+    - barman
