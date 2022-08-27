@@ -1,2 +1,4 @@
 ---
-# tasks file for barman
+- name: update yum caсhe
+  yum:
+    update_cache: true
