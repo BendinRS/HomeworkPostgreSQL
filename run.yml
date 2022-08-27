@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: pgservers
   become: true
   roles:
     - pg
