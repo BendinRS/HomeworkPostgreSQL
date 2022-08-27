@@ -2,3 +2,9 @@
 - name: update yum caсhe
   yum:
     update_cache: true
+
+- name: Install barman
+  yum:
+    name: 
+      - barman
+    state: present
