@@ -4,12 +4,15 @@
   roles:
     - pg
 
-- hosts: barmanhost
-  become: true
-  roles:
-    - barman
+# - hosts: barmanhost
+#   become: true
+#   roles:
+#     - barman
 
-- hosts: replicahost
-  become: true
-  roles:
-    - replica
+# - hosts: replicahost
+#   become: true
+#   roles:
+#     - replica
+
+
+
