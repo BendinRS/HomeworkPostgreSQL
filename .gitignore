@@ -1,0 +1,4 @@
+/.vagrant/*
+/heap/*
+/master/*
+/slave/*

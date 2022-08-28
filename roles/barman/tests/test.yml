@@ -1,0 +1,5 @@
+---
+- hosts: barmanhost
+  remote_user: root
+  roles:
+    - barman
