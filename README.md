@@ -17,7 +17,7 @@ Vagranfile (2 машины)
 # Практика
 
 + Скрипт [test.sh](test.sh) запускает разворачивание и настройку ансиблом ВМ 
-+ Роль Скрипт [pg](roles/pg/) 
++ Роль [pg](roles/pg/) 
 + Конфиг [postgresql.conf](/roles/pg/files/postgresql.conf)    
 + Конфиг [pg_hba.conf ](/roles/pg/files/pg_hba.conf)  
 + Конфиг [barman ](/roles/pg/files/barman.conf) 
