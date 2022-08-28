@@ -90,10 +90,12 @@
     mode: 0700
     owner: barman
     group: barman
+  when: (ansible_hostname == "slave")
 
 - name: Generate /etc/ssh/ RSA host key
   become_user: barman
   command : ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C "" -N ""
   args:
     creates: /var/lib/barman/.ssh
+  when: (ansible_hostname == "slave")
 
