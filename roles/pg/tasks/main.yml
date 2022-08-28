@@ -128,3 +128,9 @@
     - id_rsa.pub
   when: (ansible_hostname == "slave")
 
+- name: copy files barman
+  copy: 
+    src=files/barman.conf
+    dest=/etc/barman.conf
+  when: (ansible_hostname == "slave")
+
