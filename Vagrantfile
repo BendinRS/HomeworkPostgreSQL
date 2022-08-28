@@ -9,10 +9,6 @@ MACHINES = {
   :slave => {
         :box_name => "centos/7",
         :ip_addr => '192.168.11.151'
-  },
-  :backup => {
-        :box_name => "centos/7",
-        :ip_addr => '192.168.11.152'
   }
 }
 

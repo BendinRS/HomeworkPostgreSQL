@@ -1,18 +1,8 @@
 ---
-- hosts: pgservers
+- hosts: all
   become: true
   roles:
     - pg
-
-# - hosts: barmanhost
-#   become: true
-#   roles:
-#     - barman
-
-# - hosts: replicahost
-#   become: true
-#   roles:
-#     - replica
 
 
 
