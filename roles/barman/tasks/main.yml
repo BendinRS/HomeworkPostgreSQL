@@ -8,7 +8,6 @@
     name:
       - http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/python2-argcomplete-1.7.0-4.el7.noarch.rpm
       - http://download-ib01.fedoraproject.org/pub/epel/7/aarch64/Packages/p/python2-argh-0.26.1-5.el7.noarch.rpm
-      - http://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
 - name: Install barman & pg
   yum:
