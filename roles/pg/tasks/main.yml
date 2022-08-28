@@ -54,13 +54,13 @@
 
 - name: create barman user
   become_user: postgres
-  command: chdir=/var/lib/pgsql sudo -u postgres psql -c "Create user barman superuser  password 'barman';"
+  command: psql -c "Create user barman superuser  password 'barman';"
   ignore_errors: True
   when: (ansible_hostname == "master")
 
 - name: create slave user
   become_user: postgres
-  command: chdir=/var/lib/pgsql sudo -u postgres psql -c "Create user slave replication  password 'slave';"
+  command: psql -c "Create user slave replication  password 'slave';"
   ignore_errors: True
   when: (ansible_hostname == "master")
 
@@ -82,4 +82,18 @@
       - postgresql12
     state: present
   when: (ansible_hostname == "slave")
+
+- name: create ssh dir
+  file:
+    path: "/var/lib/barman/.ssh"
+    state: directory
+    mode: 0700
+    owner: barman
+    group: barman
+
+- name: Generate /etc/ssh/ RSA host key
+  become_user: barman
+  command : ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C "" -N ""
+  args:
+    creates: /var/lib/barman/.ssh
 
